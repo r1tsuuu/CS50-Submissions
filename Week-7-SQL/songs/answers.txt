@@ -1,0 +1,5 @@
+I think that the "Audio Aura" that Spotify describes is a unique and interesting way to describe a person. 
+If I were to calculate this, I would based more of it on the top 5-10 songs, as I believe in "Long Song Syndrome (LSS)" where a person tends to overplay a particular music until they get sick and tired of it. 
+With that in mind, I would also factor the way Spotify calculates it, though with less emphasis on that part. 
+Both mine and Spotify's way of calculating this might not be representative of the listener as it fails to account for human error or simply, human clumsiness. 
+For example, if a person fell asleep and one music kept on playing all night then that will screw up the calculations.
