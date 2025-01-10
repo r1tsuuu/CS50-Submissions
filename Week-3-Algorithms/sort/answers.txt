@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: The reversed numbers is the worst case of bubble sort since it takes the most steps, so it should be the slowest in sorting reversed numbers.
+
+sort2 uses: Merge Sort
+
+How do you know?: It has the fastest time in terms of merging the random numbers.
+
+sort3 uses: Selection Sort
+
+How do you know?: Faster than sort1 in terms of sorting the reversed numbers.
