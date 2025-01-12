@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Make sure to link your updated CSS file -->
+</head>
+<body>
+
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <!-- Part 1: Multiple Choice -->
+        <div class="section">
+            <h2>Part 1: Multiple Choice</h2>
+            <hr>
+            <h3>What's the best university in the Philippines?</h3>
+            <div class="choices">
+                <button class="choice" id="admu">ADMU</button>
+                <button class="choice" id="dlsu">DLSU</button>
+                <button class="choice" id="up">UP</button>
+                <button class="choice" id="ust">UST</button>
+            </div>
+            <div id="feedback"></div>
+        </div>
+
+        <!-- Part 2: Free Response -->
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <h3>What's 10 + 9?</h3>
+            <input type="text" id="user-answer" placeholder="Your answer">
+            <button id="check-answer">Check Answer</button>
+            <div id="response-feedback"></div>
+        </div>
+    </div>
+
+    <script>
+        // Part 1: Multiple Choice Logic
+        document.getElementById("admu").addEventListener("click", function () {
+            this.classList.add("correct");
+            document.getElementById("feedback").textContent = "Correct!";
+            document.getElementById("feedback").style.color = "green";
+
+            disableButtons();
+        });
+
+        document.getElementById("dlsu").addEventListener("click", function () {
+            this.classList.add("incorrect");
+            document.getElementById("feedback").textContent = "Incorrect!";
+            document.getElementById("feedback").style.color = "red";
+
+            disableButtons();
+        });
+
+        document.getElementById("up").addEventListener("click", function () {
+            this.classList.add("incorrect");
+            document.getElementById("feedback").textContent = "Incorrect!";
+            document.getElementById("feedback").style.color = "red";
+
+            disableButtons();
+        });
+
+        document.getElementById("ust").addEventListener("click", function () {
+            this.classList.add("incorrect");
+            document.getElementById("feedback").textContent = "Incorrect!";
+            document.getElementById("feedback").style.color = "red";
+
+            disableButtons();
+        });
+
+        function disableButtons() {
+            document.querySelectorAll('.choice').forEach(button => {
+                button.disabled = true;
+            });
+        }
+
+        // Part 2: Free Response Logic
+        document.getElementById("check-answer").addEventListener("click", function () {
+            const userAnswer = document.getElementById("user-answer").value.trim();
+            const feedbackDiv = document.getElementById("response-feedback");
+
+            if (userAnswer === "21") {
+                document.getElementById("user-answer").classList.add("correct");
+                feedbackDiv.textContent = "Correct!";
+                feedbackDiv.style.color = "green";
+            } else {
+                document.getElementById("user-answer").classList.add("incorrect");
+                feedbackDiv.textContent = "Incorrect!";
+                feedbackDiv.style.color = "red";
+            }
+        });
+    </script>
+
+</body>
+</html>

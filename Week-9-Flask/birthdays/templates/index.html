@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Birthdays</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Birthdays</h1>
+        </div>
+        <div class="container">
+
+            <!-- Section to add a birthday -->
+            <div class="section">
+                <h2>Add a Birthday</h2>
+                <form action="/" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="month">Month:</label>
+                    <input type="number" id="month" name="month" min="1" max="12" required>
+
+                    <label for="day">Day:</label>
+                    <input type="number" id="day" name="day" min="1" max="31" required>
+
+                    <button type="submit">Add</button>
+                </form>
+            </div>
+
+            <!-- Section to display all birthdays -->
+            <div class="section">
+                <h2>All Birthdays</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for birthday in birthdays %}
+                            <tr>
+                                <td>{{ birthday.name }}</td>
+                                <td>{{ birthday.month }}/{{ birthday.day }}</td>
+                                <td>
+                                    <!-- Delete button -->
+                                    <form action="/delete" method="post" style="display: inline;">
+                                        <input type="hidden" name="id" value="{{ birthday.id }}">
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                    <!-- Edit button (opens modal) -->
+                                    <button type="button" onclick="openEditModal('{{ birthday.id }}', '{{ birthday.name }}', '{{ birthday.month }}', '{{ birthday.day }}')">Edit</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <div id="editModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeEditModal()">&times;</span>
+                <h2>Edit Birthday</h2>
+                <form action="/edit" method="post">
+                    <input type="hidden" id="edit-id" name="id">
+
+                    <label for="edit-name">Name:</label>
+                    <input type="text" id="edit-name" name="name" required>
+
+                    <label for="edit-month">Month:</label>
+                    <input type="number" id="edit-month" name="month" min="1" max="12" required>
+
+                    <label for="edit-day">Day:</label>
+                    <input type="number" id="edit-day" name="day" min="1" max="31" required>
+
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- JavaScript to handle modal functionality -->
+        <script>
+            function openEditModal(id, name, month, day) {
+                // Populate modal form fields
+                document.getElementById('edit-id').value = id;
+                document.getElementById('edit-name').value = name;
+                document.getElementById('edit-month').value = month;
+                document.getElementById('edit-day').value = day;
+
+                // Show modal
+                document.getElementById('editModal').style.display = 'block';
+            }
+
+            function closeEditModal() {
+                // Hide modal
+                document.getElementById('editModal').style.display = 'none';
+            }
+        </script>
+    </body>
+</html>

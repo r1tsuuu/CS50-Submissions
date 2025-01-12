@@ -1,0 +1,16 @@
+Specification for Website Project:
+
+1. HTML Tags Used:
+   - I used a variety of HTML tags to structure the website, including <header>, <nav>, <a>, <ul>, <li>, <div>, <form>, <input>, <button>, and <footer>.
+
+2. CSS Properties Used:
+   - The design is styled with custom CSS, using properties like background-color, font-size, margin, padding, and color to ensure a modern and cohesive look.
+
+3. JavaScript Functionality:
+   - JavaScript is used to enhance user interaction, including toggling the active state of the navbar, validating the contact form, and adding small interactive elements across the site.
+
+4. Bootstrap Components Used:
+   - Bootstrap was incorporated to create a responsive layout with features like the navbar, buttons, grid system for flexible page layouts, and card components for displaying projects.
+
+5. Design Customization:
+   - I focused on a dark background with white text and blue accents for a professional, tech-oriented aesthetic. The website is fully responsive and ensures consistency across both mobile and desktop views.
